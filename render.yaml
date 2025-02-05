@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: marvel-graphql-api
+    runtime: node
+    region: oregon  # Change based on your preferred region
+    plan: free  # Change to `starter` or `standard` if needed
+    repo: https://github.com/LorenzoBalderrama/MarvelComicsGraphQL
+    branch: main  # Change if using a different branch
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: 18
+      - key: API_KEY  # Example if you need an API key for external services
+        sync: false  # This will prompt for manual input in Render
